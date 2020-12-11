@@ -1,5 +1,9 @@
+using EFCore.Core;
+using EFCore.Entity;
+using EFCore.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -19,6 +23,10 @@ namespace EFCore.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddTransient<IDBContextFactory, DBContextFactory>();
+            services.AddTransient<IUserService, UserService>();
+            services.Configure<DBConnectionOption>(Configuration.GetSection("ConnectionStrings"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

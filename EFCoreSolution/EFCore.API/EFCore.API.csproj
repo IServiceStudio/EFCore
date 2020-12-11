@@ -5,7 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\EFCore.Core\EFCore.Core.csproj" />
+    <ProjectReference Include="..\EFCore.Entity\EFCore.Entity.csproj" />
+    <ProjectReference Include="..\EFCore.Service\EFCore.Service.csproj" />
   </ItemGroup>
 
 
